@@ -1,11 +1,3 @@
-Claro. Aqui está o `style.css` completo atualizado, já com:
-
-- carrossel restaurado
-- logos em cinza normalmente
-- logos na cor original ao passar o mouse
-- caminhos de imagem preservados via HTML `assets/...`
-
-```css
 :root {
   --page-bg: #e8e7e2;
   --card-bg: #fbfbf8;
@@ -112,7 +104,7 @@ button {
 }
 
 .page-shell {
-  width: min(100%, calc(var(--container) + 56px));
+  width: min(100%, calc(var(--container, 1120px) + 56px));
   margin: 0 auto;
   padding: 52px 28px;
 }
@@ -541,8 +533,8 @@ button {
 .logo-carousel {
   position: relative;
   display: flex;
-  width: calc(100% + 104px);
-  margin: 0 -52px -26px;
+  width: 100%;
+  margin: 0 0 -26px;
   overflow: hidden;
   padding: 8px 0 34px;
 }
@@ -936,9 +928,9 @@ button {
   }
 
   .logo-carousel {
-    width: calc(100% + 56px);
-    margin-right: -28px;
-    margin-left: -28px;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .logo-item {
@@ -1059,9 +1051,9 @@ button {
   }
 
   .logo-carousel {
-    width: calc(100% + 36px);
-    margin-right: -18px;
-    margin-left: -18px;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   .logo-carousel::before,
@@ -1126,4 +1118,3 @@ button {
     animation-iteration-count: 1 !important;
   }
 }
-```
