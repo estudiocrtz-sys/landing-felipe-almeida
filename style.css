@@ -532,34 +532,50 @@ button {
 
 .logo-carousel {
   position: relative;
-  display: block;
-  width: 100%;
-  margin: 0;
-  overflow: visible;
-  padding: 8px 0 0;
+  display: flex;
+  width: calc(100% + 104px);
+  margin: 0 -52px -26px;
+  overflow: hidden;
+  padding: 8px 0 34px;
 }
 
 .logo-carousel::before,
 .logo-carousel::after {
-  content: none;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 140px;
+  height: calc(100% - 26px);
+  pointer-events: none;
+  content: "";
+}
+
+.logo-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--card-bg), rgba(247, 247, 243, 0));
+}
+
+.logo-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--card-bg), rgba(247, 247, 243, 0));
 }
 
 .logo-track {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 18px;
-  padding: 0;
-  animation: none;
+  padding-right: 18px;
+  animation: logo-carousel 34s linear infinite;
 }
 
-.logo-track[aria-hidden="true"] {
-  display: none;
+.logo-carousel:hover .logo-track {
+  animation-play-state: paused;
 }
 
 .logo-item {
   display: grid;
-  width: 100%;
+  width: clamp(190px, 22vw, 286px);
   height: 132px;
   place-items: center;
   padding: 30px 34px;
@@ -582,7 +598,7 @@ button {
 
 .logo-item img {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: auto;
   max-height: 78px;
   object-fit: contain;
@@ -593,6 +609,16 @@ button {
   width: 86%;
   max-height: none;
   transform: translateY(2px);
+}
+
+@keyframes logo-carousel {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 .section-divider {
@@ -897,16 +923,13 @@ button {
   }
 
   .logo-carousel {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  .logo-track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100% + 56px);
+    margin-right: -28px;
+    margin-left: -28px;
   }
 
   .logo-item {
+    width: 220px;
     height: 120px;
     padding: 26px;
   }
@@ -1023,18 +1046,24 @@ button {
   }
 
   .logo-carousel {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
+    width: calc(100% + 36px);
+    margin-right: -18px;
+    margin-left: -18px;
+  }
+
+  .logo-carousel::before,
+  .logo-carousel::after {
+    width: 58px;
   }
 
   .logo-track {
-    grid-template-columns: 1fr;
     gap: 12px;
-    padding-right: 0;
+    padding-right: 12px;
+    animation-duration: 26s;
   }
 
   .logo-item {
+    width: 176px;
     height: 104px;
     padding: 22px;
     border-radius: 22px;
