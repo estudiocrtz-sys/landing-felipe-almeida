@@ -1,3 +1,11 @@
+Claro. Aqui está o `style.css` completo atualizado, já com:
+
+- carrossel restaurado
+- logos em cinza normalmente
+- logos na cor original ao passar o mouse
+- caminhos de imagem preservados via HTML `assets/...`
+
+```css
 :root {
   --page-bg: #e8e7e2;
   --card-bg: #fbfbf8;
@@ -603,6 +611,11 @@ button {
   max-height: 78px;
   object-fit: contain;
   filter: grayscale(1) contrast(1.02);
+  transition: filter 280ms var(--ease), opacity 280ms var(--ease);
+}
+
+.logo-item:hover img {
+  filter: none;
 }
 
 .logo-item-wide img {
@@ -1113,3 +1126,4 @@ button {
     animation-iteration-count: 1 !important;
   }
 }
+```
